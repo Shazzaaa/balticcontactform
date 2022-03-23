@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Booking Form</title>
+    <title>Booking Form 1</title>
 </head>
 
 <?php
@@ -74,25 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $comment = test_input($_POST["comment"]);
     }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = test_input($_POST["name"]);
-        $email = test_input($_POST["email"]);
-        $mobile = test_input($_POST["phone"]);
-        $adults = test_input($_POST["adults"]);
-        $children = test_input($_POST["children"]);
-        $pets = test_input($_POST["pets"]);
-        $dates = test_input($_POST["dates"]);
-        $comment = test_input($_POST["comment"]);
-    }
-
-    function test_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 ?>
 
@@ -106,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="bodycontainer">
-            <div class="box">
+            <div>
                 <h2>Contact Form</h2>
                 <br>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -128,7 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input type="radio" name="pets" value="2pets">2
                                         <input type="radio" name="pets" value="more than 3 pets">3+<span class="error">* <?php echo $petsErr; ?>
                             </div>
-
                             <br>
                             <!--dates-->
                             Dates (from and until)<br><input class="make" name="dates" rows="5" cols="5" placeholder="eg dd/mm/yyyy until dd/mm/yyyy"><span class="error">* <?php echo $datesErr; ?><br>
@@ -161,5 +149,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
-
-pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required
